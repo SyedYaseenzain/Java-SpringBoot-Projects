@@ -1,0 +1,44 @@
+package com.amazon;
+
+import java.beans.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class PaymentService {
+
+	public void getAllPayment(String _status) throws ClassNotFoundException, SQLException{
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kodewala", "root",
+				"Toufiq");
+
+		// Create the statement
+
+		Statement stmt = (Statement) connection.createStatement();
+		String query = null;
+		if (_status == null)
+		{
+			query = "select * from payment";
+		} else
+		{
+			query = "select * from payment where status='" + _status + "'";
+			System.out.println(query);
+		}
+		// execute query
+		ResultSet rs = ((java.sql.Statement) stmt).executeQuery(query); // CURD --> C--> Create, U --> update, R --> read , D --> Delete
+
+		while (rs.next())
+		{
+			int id = rs.getInt(1);
+			String refId = rs.getString(2);
+			String status = rs.getString(3);
+
+			System.out.println("ID      : " + id);
+			System.out.println("Ref ID  : " + refId);
+			System.out.println("Status  : " + status);
+			System.out.println("----------------------");
+		}
+
+	}
+	}

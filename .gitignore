@@ -1,0 +1,49 @@
+**/target/
+**/.idea/
+**/.vscode/
+**/bin/
+**/obj/
+**/.classpath
+**/.project
+**/.settings/
+*.log
+.env
+.env.*
+!.env.example
+# Eclipse workspace files
+.metadata/
+.RemoteSystemsTempFiles/
+
+# Java build output
+**/target/
+**/build/
+**/bin/
+
+# IDE files
+**/.settings/
+**/.classpath
+**/.project
+**/.factorypath
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# All project logs
+logs/
+**/logs/
+*.log
+*.log.gz
+
+# Local configuration
+application-local.properties
+**/application-local.properties
+
+# Eclipse server configurations
+Servers/
+
+# Secrets
+.env
+**/.env
+application-secret.properties
